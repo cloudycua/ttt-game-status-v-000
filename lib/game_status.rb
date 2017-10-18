@@ -60,5 +60,22 @@ def winner(board)
   if won?(board) == false
     nil
   else
+    WIN_COMBINATIONS.detect do |winning_combo|
+
+      win_index_1 = winning_combo[0]
+      win_index_2 = winning_combo[1]
+      win_index_3 = winning_combo[2]
+
+      position_1 = board[win_index_1]
+      position_2 = board[win_index_2]
+      position_3 = board[win_index_3]
+
+      if position_1 == "X" && position_2 == "X" && position_3 == "X"
+        return "X"
+      else
+        position_1 == "O" && position_2 == "O" && position_3 == "O"
+        return "O"
+      end
+    end
   end
 end
